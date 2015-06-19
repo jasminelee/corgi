@@ -1,0 +1,22 @@
+<style>
+.error { color: red; } 
+</style>
+
+<h1> New Corgi Name </h1>
+
+<% unless @name.errors.empty? %> 
+	<p> Please fix the following errors: </p>
+	<ul class = error>
+		<% @name.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %> 
+	</ul>
+<% end %>
+
+<%= form_for @name, html:{ multipart: true } do |f| %>
+	<p>Name: <%= f.text_field :name %> </p>  
+	<p>Name: <%= f.text_field :owner %> </p>  
+	<p>Photo: <%= f.file_field :image %> </p>
+	<p><%= f.submit %></p> 
+
+<% end %>
