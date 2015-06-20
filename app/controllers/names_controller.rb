@@ -25,6 +25,28 @@ class NamesController < ApplicationController
 		respond_with @name 
 	end 
 
+	def edit
+		@name = Name.find(params[:id])
+	end
+
+	def update
+		@name = Name.find(params[:id])
+ 
+	  respond_to do |format|
+	  	#
+	    if @name.update_attributes({:name => params[:name] } )
+	      format.html  { redirect_to(@name,
+	                    :notice => 'name was successfully updated.') }
+	      format.json  { head :no_content }
+	    else
+	      format.html  { render :action => "edit" }
+	      format.json  { render :json => @name.errors,
+	                    :status => :unprocessable_entity }
+	    end
+	   end
+  	end
+	
+
 	private
 
 	def name_params

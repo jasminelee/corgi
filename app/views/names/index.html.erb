@@ -4,7 +4,7 @@
 		<li>
 			<%= name.owner %>'s pet corgi named <%= name.name  %>
 			<p>
-			<%= image_tag(name.image.url(:large)) %>
+			<%= link_to image_tag(name.image.url(:large)), {:action => 'edit', :id => name.id, :controller => 'names'}  %>
 			<p>
 			Score: <%= name.ratings.average(:value).to_s%>
 			<p>

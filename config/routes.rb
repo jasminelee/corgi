@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    resources :names, except: [:edit, :udpate, :show] do 
+    resources :names, except: [:show] do 
       resources :ratings, only: :create
     end
 
