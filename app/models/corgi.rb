@@ -1,4 +1,4 @@
-class Name < ActiveRecord::Base
+class Corgi < ActiveRecord::Base
 	has_many :ratings
 
 	validates :name, :owner,

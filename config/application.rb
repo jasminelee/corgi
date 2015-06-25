@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Corgi
+module CorgiNames
   class Application < Rails::Application 
     Paperclip::Railtie.insert
     # Settings in config/environments/* take precedence over those specified here.

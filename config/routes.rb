@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-    resources :names, except: [:show] do 
+    resources :corgis, except: [:show] do 
       resources :ratings, only: :create
     end
 
-    root to: 'names#index'
+    root to: 'corgis#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

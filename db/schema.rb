@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619001732) do
+ActiveRecord::Schema.define(version: 20150625005458) do
 
-  create_table "names", force: :cascade do |t|
+  create_table "corgis", force: :cascade do |t|
     t.string   "name",               null: false
     t.string   "owner",              null: false
     t.datetime "created_at",         null: false
@@ -24,17 +24,17 @@ ActiveRecord::Schema.define(version: 20150619001732) do
     t.datetime "image_updated_at"
   end
 
-  add_index "names", ["name"], name: "index_names_on_name"
-  add_index "names", ["owner"], name: "index_names_on_owner"
+  add_index "corgis", ["name"], name: "index_corgis_on_name"
+  add_index "corgis", ["owner"], name: "index_corgis_on_owner"
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "name_id",    null: false
+    t.integer  "corgi_id",   null: false
     t.integer  "value",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "ratings", ["corgi_id"], name: "index_ratings_on_corgi_id"
   add_index "ratings", ["created_at"], name: "index_ratings_on_created_at"
-  add_index "ratings", ["name_id"], name: "index_ratings_on_name_id"
 
 end

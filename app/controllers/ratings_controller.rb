@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
 	def create
-		@name = Name.find(params[:name_id])
-		@rating = @name.ratings.create(value: params[:value])
-		redirect_to names_url
+		@corgi = Corgi.find(params[:corgi_id])
+		@rating = @corgi.ratings.create(value: params[:value])
+		redirect_to corgis_url
 	end 
 end
