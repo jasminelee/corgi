@@ -1,4 +1,5 @@
 class Corgi < ActiveRecord::Base
+	belongs_to :user
 	has_many :ratings
 
 	validates :name, :owner,
