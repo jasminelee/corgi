@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many: :corgis
+	has_many :corgis
 
 	validates :name, presence: true, length: {maximum: 50}
 	validates :email, presence: true, length: {maximum: 255}

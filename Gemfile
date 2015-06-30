@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'responders'
 gem 'paperclip'
+gem 'bootstrap-sass',	'~> 3.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
