@@ -33,6 +33,8 @@ class CorgisController < ApplicationController
 		respond_with @corgi, location: corgis_url
   	end
 	
+  	def home
+  	end
 
 	private
 
