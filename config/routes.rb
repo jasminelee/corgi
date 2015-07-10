@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-    resources :corgis, except: [:show] do 
-      resources :ratings, only: :create
+    resources :corgis, only: :index
+    resources :users do 
+      resources :corgis, controller: 'user/corgis', except: [:show] do 
+        resources :ratings, only: :create
+      end
     end
 
   root to: 'corgis#home'
