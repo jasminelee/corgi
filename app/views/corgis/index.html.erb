@@ -4,12 +4,13 @@
 		<li>
 			<%= corgi.owner %>'s pet corgi named <%= corgi.name  %>
 			<p>
-			<%= link_to image_tag(corgi.image.url(:large)), {:action => 'edit', :id => corgi.id, :controller => 'corgis'}  %>
+			<!-- a user can only edit a corgi that belongs to her --> 	
+			<%= link_to image_tag(corgi.image.url(:large)), user_corgis_url(corgi.owner)  %>
 			<p>
 			Score: <%= corgi.ratings.average(:value).to_s%>
 			<p>
 			<% 0.upto(5) do |i| %> 
-			<%= link_to i.to_s, corgi_ratings_url(corgi, value: i), method: 'POST' %>
+			<%= link_to i.to_s, user_corgi_ratings_url(corgi.owner, corgi, value: i), method: 'POST' %>
 
 			<% end %>
 		</li>
@@ -17,4 +18,5 @@
 	<% end %>
 </ul>
 
-<p> <%= link_to "New Corgi", new_corgi_url %></p>
+<!-- hacky way of indicating that a new corgi made should belong to the user--> 
+<p> <%= link_to "New Corgi", new_user_corgi_url(@corgis.first.owner) %></p>
